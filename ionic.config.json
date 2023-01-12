@@ -1,0 +1,7 @@
+{
+  "name": "cursoIonicPca",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
