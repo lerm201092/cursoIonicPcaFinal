@@ -1,11 +1,11 @@
-<ion-content>
-  <ion-slides pager="true" [options]="slideOpt">
-    <ion-slide *ngFor="let slide of slides">
-      <p><ion-icon name="close"></ion-icon></p>
-      <h1>{{slide.titulo}}</h1>
-      <h2>{{slide.subTitulo}}</h2>
-      <img src={{slide.img}} alt="img-slide">
-      <p>{{slide.descripcion}}</p>
-    </ion-slide>
-  </ion-slides>
-</ion-content>
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons>
+        <ion-button (click)="goToCerrarSesion()">
+          Cerrar Sesion
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+<p class="ion-text-center ion-text-uppercase">Hola soy el home</p>
