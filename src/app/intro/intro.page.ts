@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 
 @Component({
@@ -19,42 +18,44 @@ export class IntroPage implements OnInit {
 
   slides = [
     {
-      title: "Title 1",
-      desc: "sdasdfsd",
-      subtitle: "subtitle 1",
-      img: "https://www.zooplus.es/magazine/wp-content/uploads/2022/05/Cuanto-pesa-un-gato-2.jpeg",
+      title: "inventario",
+      desc: null,
+      subtitle: "Ordenamiento de libros",
+      img: "./assets/img/img1.png",
       description: "Lorem Ipsum  and typesetting industry."
     },
     {
-      title: "Title 2",
-      desc: "",
-      subtitle: "subtitle 2",
-      img: "assets/logo.png",
+      title: "E-BOOK",
+      desc: null,
+      subtitle: "Un camino hacia el futuro",
+      img: "./assets/img/img2.png",
       description: "Lorem Ipsum is simply dummy text of the printing ."
     },
     {
-      title: "Title 3",
+      title: "AUDIO LIBROS",
       desc: null,
-      subtitle: "subtitle 3",
-      img: "https://www.zooplus.es/magazine/wp-content/uploads/2022/05/Cuanto-pesa-un-gato-2.jpeg",
+      subtitle: "Cierra tus ojos e imagina",
+      img: "./assets/img/img3.png",
+      description: "simply dummy text of the printing and typesetting industry."
+    },
+    {
+      title: "AMBIENTE",
+      desc: null,
+      subtitle: "Tranquilidad y espacio ideal",
+      img: "./assets/img/img4.png",
       description: "simply dummy text of the printing and typesetting industry."
     }
   ]
 
-  constructor(private router: Router, private storage: Storage, 
-    private navCtrl: NavController) { 
+  constructor(private router: Router, private storage: Storage) { 
   }
 
   finish(){
     this.storage.set("isIntroShowed", true);
     this.router.navigateByUrl("/home");
   }
+  
   ngOnInit() {
-  }
-
-  goToCerrarSesion(){
-    this.storage.set("isUserLoggedIn", true);
-    this.navCtrl.navigateForward("/login");
   }
 
 }

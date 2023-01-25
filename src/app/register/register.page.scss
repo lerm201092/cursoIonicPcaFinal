@@ -2,4 +2,40 @@
     max-width: 100px;
     margin: 0 auto;
     display: block;
-} 
+}
+
+.figImgLogo{
+    padding-top: 40px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.imgLogo{
+    width: 40%;
+    max-width: 150px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.ion-color-danger {
+    --ion-color-base: var(--institutional-dark-color) !important;
+    --ion-color-base-rgb: var(--ion-color-danger-rgb, 235, 68, 90) !important;
+    --ion-color-contrast: var(--ion-color-danger-contrast, #fff) !important;
+    --ion-color-contrast-rgb: var(--ion-color-danger-contrast-rgb, 255, 255, 255) !important;
+    --ion-color-shade: var(--ion-color-danger-shade, #cf3c4f) !important;
+    --ion-color-tint: var(--institutional-dark-color, #ed576b) !important;
+}
+
+.itemRegistro{
+    margin: 10px auto;
+}
+
+.divButton{
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+ion-button {
+    font-size: 12px!important;
+}

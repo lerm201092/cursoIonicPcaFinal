@@ -1,0 +1,52 @@
+<ion-header class="ion-header">
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button (click)="closeModal()" class="ion-text-capitalize">
+        <ion-icon name="chevron-back-outline"></ion-icon>&nbsp;Atras
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <div class="ion-text-center">
+          <img id="imgAuthor" src="{{author.photo}}" />
+        </div>
+      </ion-col>
+      <ion-col size="12">
+        <div class="ion-text-capitalize ion-text-center">
+          {{author.name}}
+        </div>
+      </ion-col>
+    </ion-row>
+    <hr />
+    <ion-row>
+      <ion-col size="12" *ngFor="let book of books">
+        <ion-card>
+          <ion-card-content style="padding: 0;">
+            <ion-row>
+              <ion-col size="4">
+                <img class="logoTarjeta" src="{{book.cover}}" />
+              </ion-col>
+              <ion-col size="8">
+                <h3><b>{{book.name}}</b></h3>
+                <br />
+                <p class="detalleLibro">{{book.published_date}}</p>
+                <p class="detalleLibro">{{book.genres.replace("{","").replace("}", "")}}</p>
+              </ion-col>
+            </ion-row>
+
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+  <!-- <span>{{author.name}}</span> -->
+
+  <!-- <li *ngFor="let book of books">{{books.id}} Luis </li> -->
+</ion-content>

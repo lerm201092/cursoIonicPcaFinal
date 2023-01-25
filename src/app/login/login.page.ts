@@ -25,7 +25,9 @@ export class LoginPage implements OnInit {
   constructor(private formBuilder: FormBuilder, 
     private auth: AuthenticateService, 
     private navCtrl: NavController,
-    private storage: Storage,private router: Router    ) { 
+    private storage: Storage,
+    private router: Router
+    ) { 
 
     this.loginForm = this.formBuilder.group({
       email: new FormControl(
@@ -53,14 +55,18 @@ export class LoginPage implements OnInit {
     this.auth.loginUser(credentials).then( res => {
       this.errorMessage = "";
       this.storage.set("isUserLoggedIn", true);
-      this.navCtrl.navigateForward("/home");
+      this.navCtrl.navigateForward("/menu/home");
     }).catch(err => {
       this.errorMessage = err
     });
   }
 
-  irRegistro(){
-    this.router.navigateByUrl("/register");
+  irRegistrarse(){
+    this.navCtrl.navigateRoot("/register");
+  }
+
+  log(obj : any){
+    console.log(obj);
   }
 
 }

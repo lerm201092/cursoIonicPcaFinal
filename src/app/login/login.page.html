@@ -1,43 +1,51 @@
-<ion-content>
-  <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
+<ion-content id="contenidoLogin">
+  <figure class="figImgLogo">
+    <img src="./assets/img/logo.png" class="imgLogo" alt="ImagenLogin" />
+  </figure>
+  <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)" id="formLogin">
 
-    <ion-item fill="solid">
+    <ion-item fill="solid" id="txtEmail">
       <ion-label position="floating">Email</ion-label>
       <ion-input formControlName="email"></ion-input>
     </ion-item>
-<div>
-  <ng-container *ngFor="let validation of validation_message.email">
-    <div *ngIf="
-    loginForm.get('email')?.hasError(validation.type) && 
-    (loginForm.get('email')?.dirty || 
-    loginForm.get('email')?.touched)
-    ">
-      {{validation.message}}
+    <div>
+      <ng-container *ngFor="let validation of validation_message.email">
+        <div class="msgAlertaTxt"
+          *ngIf="loginForm.get('email')?.hasError(validation.type) && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)">
+          {{ loginForm.get('email')?.value === "" ? "" : validation.message }} 
+        </div>
+      </ng-container>
     </div>
-  </ng-container>
-</div>
-    <ion-item fill="solid">
+    <ion-item fill="solid" id="txtPass">
       <ion-label position="floating">Contraseña</ion-label>
-      <ion-input formControlName="password"></ion-input>
+      <!-- <ion-input formControlName="password"></ion-input> -->
+      <ion-input type="password" formControlName="password"></ion-input>
     </ion-item>
-<ion-button 
-shape="round"
-color="warning"
-[disabled]="!loginForm.valid"
-type="submit">
-  Acceder
-</ion-button>
-<ion-button 
-shape="round"
-(click)="irRegistro()"
-type="button">
-  Registrarse
-</ion-button>
+
+    <div>
+      <ng-container *ngFor="let validation of validation_message.email">
+        <div class="msgAlertaTxt"
+          *ngIf="loginForm.get('password')?.hasError(validation.type) && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
+          {{ loginForm.get('password')?.value === "" ? "" : validation.message }} 
+        </div>
+      </ng-container>
+    </div>
+    <br />
+    <div class="msgAlertaTxt">
+      <h5>{{ errorMessage }}</h5>
+    </div>
+    <ion-button shape="round" color="danger" [disabled]="!loginForm.valid" type="submit">
+      Acceder
+    </ion-button>
+    <br><br>
+    <a (click)="irRegistrarse()" href="javascript:void(0)" id="linkRegistro">¿Aun no tienes cuenta?, Registrate</a>
   </form>
-{{ errorMessage }}
-</ion-content>  
+
+
+</ion-content>
+
 <ion-footer>
   <ion-toolbar>
-    <ion-title>Title</ion-title>
+    <ion-title>Iniciar Sesión</ion-title>
   </ion-toolbar>
 </ion-footer>

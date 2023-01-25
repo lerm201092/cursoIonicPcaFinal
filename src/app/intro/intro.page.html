@@ -1,24 +1,21 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons>
-      <ion-button (click)="goToCerrarSesion()">
-        Cerrar Sesion
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
 <ion-content>
   <ion-slides pager="true" [options]="slideOpt">
 
     <ion-slide *ngFor="let slide of slides">
       <ion-icon name="close" (click)="finish()" ></ion-icon>
-      <h1>{{slide.title}}</h1>
-      <p>{{slide.desc}}</p>
-      <h2>{{slide.subtitle}}</h2>
+      <div class="ion-text-uppercase">
+        <h1 class="introTitulo">{{slide.title}}</h1>
+      </div>
+
+      <!-- <p>{{slide.desc}}</p> -->
+      <h2 class="introSubtitulo">{{slide.subtitle}}</h2>
       <img src={{slide.img}} alt="">
-      <p>
-        {{slide.description}}
-      </p>
+      <div class="ion-text-capitalize">
+        <p>
+          {{slide.description}}
+        </p>
+      </div>
+
     </ion-slide>
 
   </ion-slides>

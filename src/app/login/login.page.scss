@@ -1,0 +1,42 @@
+.figImgLogo{
+    padding-top: 40px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.imgLogo{
+    width: 40%;
+    max-width: 150px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.msgAlertaTxt{
+    color: var(--institutional-light-color);
+    font-size: 13px;
+}
+#txtEmail{
+    margin-bottom: 10px;
+}
+
+#txtPass{
+    margin-bottom: 10px;
+}
+
+#linkRegistro{
+    font-size: 13px;
+}
+
+.ion-color-danger {
+    --ion-color-base: var(--institutional-dark-color) !important;
+    --ion-color-base-rgb: var(--ion-color-danger-rgb, 235, 68, 90) !important;
+    --ion-color-contrast: var(--ion-color-danger-contrast, #fff) !important;
+    --ion-color-contrast-rgb: var(--ion-color-danger-contrast-rgb, 255, 255, 255) !important;
+    --ion-color-shade: var(--ion-color-danger-shade, #cf3c4f) !important;
+    --ion-color-tint: var(--institutional-dark-color, #ed576b) !important;
+}
+
+#contenidoLogin{
+    background-color: yellow;
+  padding: 10px 50px;
+}
