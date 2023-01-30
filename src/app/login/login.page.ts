@@ -56,7 +56,7 @@ export class LoginPage implements OnInit {
     this.auth.loginUser(credentials).then( (res: any) => {
       this.errorMessage = "";
       this.storage.set("user_id", res.user.id);
-      this.navCtrl.navigateForward("/menu/home");
+      this.navCtrl.navigateRoot("/menu/home");
     }).catch(err => {
       this.presentAlert("Opps", "Hubo un error", err);
     });

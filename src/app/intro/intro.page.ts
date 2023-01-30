@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 
 @Component({
@@ -47,12 +48,12 @@ export class IntroPage implements OnInit {
     }
   ]
 
-  constructor(private router: Router, private storage: Storage) { 
+  constructor(private router: Router, private storage: Storage, private navCtrl: NavController) { 
   }
 
   finish(){
     this.storage.set("isIntroShowed", true);
-    this.router.navigateByUrl("/home");
+    this.router.navigateByUrl("/menu/home");
   }
   
   ngOnInit() {

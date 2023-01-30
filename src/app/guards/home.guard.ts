@@ -7,16 +7,18 @@ import { NavController } from '@ionic/angular';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginGuard implements CanActivate {
+export class HomeGuard implements CanActivate {
+
   constructor(private storage: Storage, private navCtrl: NavController) {}
+
   async canActivate(){
     const login = await this.storage.get("user_id");
     console.log(login)
     if (login){
-      return true;
-    }else{
-      this.navCtrl.navigateForward("/login");
+      this.navCtrl.navigateForward("/menu/home");
       return false;
+    }else{
+      return true;
     }
     
   }

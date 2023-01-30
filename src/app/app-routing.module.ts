@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { HomeGuard } from './guards/home.guard';
 import { IntroGuard } from './guards/intro.guard';
 import { LoginGuard } from './guards/login.guard';
 
@@ -15,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule), canActivate: [IntroGuard]
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule), canActivate: [HomeGuard, IntroGuard]
   },
   {
     path: 'register',
@@ -46,8 +47,8 @@ const routes: Routes = [
     loadChildren: () => import('./book-detail-modal/book-detail-modal.module').then( m => m.BookDetailModalPageModule)
   },
   {
-    path: 'book-detail-modal',
-    loadChildren: () => import('./book-detail-modal/book-detail-modal.module').then( m => m.BookDetailModalPageModule)
+    path: 'top-books',
+    loadChildren: () => import('./top-books/top-books.module').then( m => m.TopBooksPageModule)
   }
 ];
 

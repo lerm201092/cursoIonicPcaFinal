@@ -12,6 +12,7 @@ export class HomePage {
 
   authors: any;
   booksOff: any;
+  topBooks: any;
   booksOfAuthor: any;
 
   slideOps = {
@@ -35,6 +36,7 @@ export class HomePage {
     });
 
     this.booksOff = this.libraryService.getBooksOffline();
+
   }
 
   searchBooks(authorId:number){
@@ -66,6 +68,11 @@ export class HomePage {
 
   goToMyFavorites(){
     this.navCtrl.navigateForward("/menu/favorite-books");
+    this.menu.close();
+  }
+
+  goToTopBooks(){
+    this.navCtrl.navigateForward("/menu/top-books");
     this.menu.close();
   }
 
