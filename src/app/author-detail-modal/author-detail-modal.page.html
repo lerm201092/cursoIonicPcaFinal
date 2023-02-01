@@ -15,6 +15,8 @@
   </div>
 
   <p class="ion-margin ion-text-justify">{{author.resumen}}</p>
+  <p class="ion-margin"><b>Popularidad:</b> {{author.popularity}}</p>
+  <p class="ion-margin"><b>Cantidad de seguidores:</b> {{author.followers}}</p>
   <p class="ion-margin">Generos:</p>
   <ion-badge *ngFor="let gender of author.genres" class="ion-margin">{{gender}}</ion-badge>
 </ion-content>
