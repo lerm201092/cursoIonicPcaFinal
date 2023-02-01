@@ -10,7 +10,9 @@ import { BookDetailModalPage } from '../book-detail-modal/book-detail-modal.page
 })
 export class BooksPage implements OnInit {
 
-  books: any;
+  books: any = [];
+  booksFiltered: any = [];
+  swBusqueda : number= 0;
 
   constructor(
     private libraryService: LibraryService,
@@ -32,5 +34,22 @@ export class BooksPage implements OnInit {
     return await modal.present();
   }
 
+
+  onCancel(ev:any) { 
+    // Reset the field
+    ev.target.value = '';
+    this.search(ev.target.value)
+  }
+
+  search(ev:any) {
+    this.booksFiltered = this.books.filter( (res:any) => { 
+     if (res.name.toLowerCase().indexOf(ev.toLowerCase()) >= 0) return res
+    })
+   if(ev !== ""){
+      this.swBusqueda = 1;
+   }else{
+    this.swBusqueda = 0;
+   }
+  }
 
 }

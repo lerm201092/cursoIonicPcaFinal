@@ -8,12 +8,23 @@
     </ion-buttons>
     <ion-title>Libros</ion-title>
   </ion-toolbar>
+  <ion-item>
+    <ion-searchbar placeholder="Buscar" #q [showCancelButton]="true" (ionClear)="onCancel($event)" (ionCancel)="onCancel($event)" (keyup)="search(q.value)"></ion-searchbar>
+  </ion-item>
 </ion-header>
-
 <ion-content>
-  <ion-list>
+
+  <ion-list *ngIf="booksFiltered.length === 0 && swBusqueda === 0">
     <ion-item *ngFor="let book of books" (click)="showBook(book)">
-      <ion-label>{{book.name}}</ion-label>
+      <ion-avatar class="ion-margin-horizontal"><img src="{{book.cover}}" alt="" ></ion-avatar><ion-label>{{book.name}}</ion-label>
     </ion-item>
   </ion-list>
+  <ion-list *ngIf="booksFiltered.length  > 0 ">
+    <ion-item *ngFor="let book of booksFiltered" (click)="showBook(book)">
+      <ion-avatar class="ion-margin-horizontal"><img src="{{book.cover}}" alt="" ></ion-avatar><ion-label>{{book.name}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+
+
 </ion-content>

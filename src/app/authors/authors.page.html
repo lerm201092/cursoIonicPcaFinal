@@ -1,19 +1,30 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button text="Volver" ></ion-back-button>
+      <ion-back-button text="Volver"></ion-back-button>
     </ion-buttons>
     <ion-buttons slot="end">
-      <ion-menu-button ></ion-menu-button>
+      <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>Autores</ion-title>
   </ion-toolbar>
+  <ion-item>
+    <ion-searchbar placeholder="Buscar" #q [showCancelButton]="true" (ionClear)="onCancel($event)" (ionCancel)="onCancel($event)" (keyup)="search(q.value)"></ion-searchbar>
+  </ion-item>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let author of authors">
-      <ion-label>{{author.name}}</ion-label>
+
+  <ion-list *ngIf="authorsFiltered.length === 0 && swBusqueda === 0">
+    <ion-item *ngFor="let author of authors"  (click)="showAuthor(author)">
+      <ion-avatar class="ion-margin-horizontal"><img src="{{author.photo}}"
+          alt=""></ion-avatar><ion-label>{{author.name}}</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list *ngIf="authorsFiltered.length  > 0 ">
+    <ion-item *ngFor="let author of authorsFiltered"  (click)="showAuthor(author)">
+      <ion-avatar class="ion-margin-horizontal"><img src="{{author.photo}}"
+          alt=""></ion-avatar><ion-label>{{author.name}}</ion-label>
     </ion-item>
   </ion-list>
 </ion-content>
